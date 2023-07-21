@@ -1,12 +1,18 @@
 const mongoose = require("mongoose");
 
-mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/googlebooks", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("db connected");
-  });
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
 
-module.exports = mongoose.connection;
+mongoose.connect(MONGODB_URI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
+
+mongoose.connection.on("connected", () => {
+  console.log("Connected to MongoDB!");
+});
+
+mongoose.connection.on("error", (err) => {
+  console.error("Error connecting to MongoDB:", err.message);
+});
