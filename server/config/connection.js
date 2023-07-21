@@ -2,11 +2,10 @@
 
 const mongoose = require('mongoose');
 
-const dbURI = process.env.MONGODB_URI;
+const dbURI = MONGODB_URI;
 mongoose.connect(dbURI, {
-  useNewUrlParser: true,
+  useNewUrlParser: false,
   useUnifiedTopology: true,
-  useCreateIndex: true,
 });
 
 module.exports = mongoose.connection;
