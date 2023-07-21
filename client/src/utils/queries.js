@@ -1,8 +1,6 @@
 import { gql } from "@apollo/client";
 
-// GraphQL Queries
-
-// Query for getting user information
+// GET Query to get users information
 export const GET_ME = gql`
   query {
     me {
