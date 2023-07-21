@@ -1,12 +1,19 @@
-const mongoose = require("mongoose");
+// connection.js
 
-mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/googlebooks", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("db connected");
-  });
+const mongoose = require('mongoose');
 
-module.exports = mongoose.connection;
+const mongoURI = process.env.MONGODB_URI;
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+
+db.once('open', () => {
+  console.log('Connected to MongoDB database.');
+});
+
+db.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
