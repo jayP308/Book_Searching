@@ -10,14 +10,21 @@
 * [Contacts](#contacts)
   
 ## Usage
-This app is use to create a community where software engineers comes connects with each other, whether to questions, simple conversations.
+This app is use to search books base on titles or genres and able to bookmark and save.
   
 ## Description
-This app includes a landing page where a user will be presented with app logo and description of what the purpose of this app. There can be found two buttons for logging in and signing up user information will be stored in a database. Upon successfully, signing in or logging in, a user will be directed to the dashboard or 'feed'. The feed page will present all of the review or post of every user created an account to the app. Logged in user can also write a comment to each review and all existing comments withing than specific review can be viewed and will be taken to the comment page. Under profile page, user are able to access account information and as well post images and write captions. Within the same page, user account profile will show the post of only of that user and may view existing comments, write comments, delete post, and addition feature is that profile pictures can be change. Lastly, a logout button that will kill the session and take user back to the main page. 
+This app includes a landing page where user can search for a any book without being logged in but wont be able to save the book. Users are free to signup and will serve the same function as the homepage where searching for books, the only difference is that once user is logged in, they are able to save books that will be stored in a page called "Saved Books". Not only logged in user can save books, they are able to delete them. Each book that is being saved is attached to the logged in users only and will only be visible to the user. Lastly, a logout button that allows users to exit out of their account.
   
 ## URL 
 
 ## Screenshots
+Home Page (Not Logged In)
+
+<img src="./images/homepage-notloggedin.png" alt="Homepage Not Logged In" />
+
+Home Page (Logged In)
+
+<img src="./images/homepage-loggedin.png" alt="Homepage Logged In" />
 
 ## Contributors
 Junnel R. Padilla, UC Berkeley Bootcamp Modules, ChatGPT

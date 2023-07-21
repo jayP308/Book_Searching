@@ -41,6 +41,40 @@
             const token = signToken(user);
             return { token, user };
         },
+
+        saveBook: async (parent, { newBook }, context) => {
+            if (!context.user) {
+              throw new AuthenticationError("You need to be logged in!");
+            }
+      
+            try {
+              const updatedUser = await User.findOneAndUpdate(
+                { _id: context.user._id },
+                { $addToSet: { savedBooks: newBook } },
+                { new: true }
+              );
+              return updatedUser;
+            } catch (error) {
+              throw new Error("Error saving the book");
+            }
+        },
+
+        removeBook: async (parent, { bookId }, context) => {
+            if (!context.user) {
+              throw new AuthenticationError("You need to be logged in!");
+            }
+      
+            try {
+              const updatedUser = await User.findOneAndUpdate(
+                { _id: context.user._id },
+                { $pull: { savedBooks: { bookId } } },
+                { new: true }
+              );
+              return updatedUser;
+            } catch (error) {
+              throw new Error("Error removing the book");
+            }
+        },
     },
  };
 
